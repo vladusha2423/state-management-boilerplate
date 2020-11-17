@@ -1,10 +1,15 @@
 import Store from '../modules/store/store.js';
+import {cpmStore} from "./cpm.js";
 
 const state = {
     items: [
         'Привет',
-        'Как дела'
-    ]
+        'Как дела',
+        'Заебись',
+        'А ты как',
+        'Тоже заебись'
+    ],
+    cpm: cpmStore.state
 };
 
 export default new Store({
@@ -15,7 +20,8 @@ export default new Store({
         },
         clearItem(context, payload) {
             context.commit('clearItem', payload);
-        }
+        },
+        ...cpmStore.actions
     },
     mutations: {
         addItem(state, payload) {
@@ -27,6 +33,7 @@ export default new Store({
             state.items.splice(state.items.indexOf(payload.text), 1);
 
             return state;
-        }
+        },
+        ...cpmStore.mutations
     }
 });

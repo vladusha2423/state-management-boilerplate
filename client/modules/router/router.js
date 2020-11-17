@@ -1,52 +1,54 @@
-import Route from './route';
+import Route from "./route.js";
 
-class Router {
-    constructor(rootQuery) {
-        if (Router.__instance) {
-            return Router.__instance;
-        }
+export default class Router {
 
+    constructor(rootQuery){
         this.routes = [];
-        this.history = window.history;
-        this._currentRoute = null;
-        this._rootQuery = rootQuery;
-
-        Router.__instance = this;
+        this.currentRoute = null;
+        this.rootQuery = rootQuery;
     }
 
-    use(pathname, block) {
-        const route = new Route(pathname, block, {rootQuery: this._rootQuery});
-
+    use(path, component, data){
+        const route = new Route(path, component, this.rootQuery, data);
         this.routes.push(route);
-
         return this;
     }
 
-    start() {
+    start(){
         window.onpopstate = (event => {
-            this._onRoute(event.currentTarget.location.pathname);
+            this.redirect(event.currentTarget.location.pathname);
+            return false;
         }).bind(this);
 
-        this._onRoute(window.location.pathname);
+        this.redirect(window.location.pathname);
     }
 
-    _onRoute(pathname) {
-        const route = this.getRoute(pathname);
-        if (!route) {
-            return;
+    redirect(path){
+        this.currentRoute = this.routes.find(route => route.path === path ||
+            route.path.slice(0, route.path.lastIndexOf('/')) === path.slice(0, path.lastIndexOf('/'))
+                && route.path.indexOf(':') !== -1);
+        if(!this.currentRoute){
+            this.redirect('/404');
         }
-
-        if (this._currentRoute && this._currentRoute !== route) {
-            this._currentRoute.leave();
+        else if(this.currentRoute.path.indexOf(':') !== -1){
+            let data = {};
+            let value = path.split('/')[path.split('/').length - 1];
+            let key = this.currentRoute.path
+                .split('/')[this.currentRoute.path.split('/').length - 1]
+                    .split('')
+                    .splice(1)
+                    .join('');
+            data[key] = value;
+            this.currentRoute.render(data);
         }
-
-        this._currentRoute = route;
-        route.render(route, pathname);
+        else
+            this.currentRoute.render();
     }
 
-    go(pathname) {
-        this.history.pushState({}, '', pathname);
-        this._onRoute(pathname);
+    findRoute(path){
+        //  path:   /item/1
+        //  need:   /item/:index
+
     }
 
     back() {
@@ -56,10 +58,4 @@ class Router {
     forward() {
         this.history.forward();
     }
-
-    getRoute(pathname) {
-        return this.routes.find(route => route.match(pathname));
-    }
 }
-
-export default Router;

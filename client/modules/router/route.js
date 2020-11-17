@@ -1,36 +1,16 @@
-export default class Route {
-    constructor(pathname, view, props) {
-        this._pathname = pathname;
-        this._blockClass = view;
-        this._block = null;
-        this._props = props;
+export default class Route{
+    constructor(path, component, rootQuery, data){
+        this.path = path;
+        this.component = component;
+        this.rootQuery = rootQuery;
+        this.data = data;
     }
-
-    navigate(pathname) {
-        if (this.match(pathname)) {
-            this._pathname = pathname;
-            this.render();
-            this._block.resume();
-        }
-    }
-
-    // leave() {
-    //     if (this._block) {
-    //         this._block.hide();
-    //     }
-    // }
-
-    match(pathname) {
-        return pathname === this._pathname;
-    }
-
-    render() {
-        if (!this._block) {
-            this._block = new this._blockClass();
-            render(this._props.rootQuery, this._block);
-            return;
-        }
-
-        this._block.show();
+    render(data){
+        let root = document.querySelector(this.rootQuery);
+        root.innerHTML = '';
+        if(data)
+            root.append(new this.component(data).render());
+        else
+            root.append(new this.component().render());
     }
 }

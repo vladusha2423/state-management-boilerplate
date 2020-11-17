@@ -2,38 +2,36 @@ import PubSub from '../pubsub/pubsub.js';
 
 export default class Store {
     constructor(params) {
-        let self = this;
+        console.log('STORE constructor')
 
-        self.actions = {};
-        self.mutations = {};
-        self.state = {};
+        this.actions = {};
+        this.mutations = {};
+        this.state = {};
 
-        self.status = 'resting';
+        this.status = 'resting';
 
-        self.events = new PubSub();
+        this.events = new PubSub();
 
         if(params.hasOwnProperty('actions')) {
-            self.actions = params.actions;
+            this.actions = params.actions;
         }
 
         if(params.hasOwnProperty('mutations')) {
-            self.mutations = params.mutations;
+            this.mutations = params.mutations;
         }
 
-        self.state = new Proxy((params.state || {}), {
+        this.state = new Proxy((params.state || {}), {
             set: function(state, key, value) {
 
                 state[key] = value;
 
                 console.log(`stateChange: ${key}: ${value}`);
 
-                self.events.publish('stateChange', self.state);
+                // this.events.publish('stateChange', this.state);
 
-                if(self.status !== 'mutation') {
-                    console.warn(`You should use a mutation to set ${key}`);
-                }
 
-                self.status = 'resting';
+
+                this.status = 'resting';
 
                 return true;
             }
@@ -42,37 +40,42 @@ export default class Store {
 
     dispatch(actionKey, payload) {
 
-        let self = this;
-
-        if(typeof self.actions[actionKey] !== 'function') {
+        if(typeof this.actions[actionKey] !== 'function') {
             console.error(`Action "${actionKey} doesn't exist.`);
             return false;
         }
 
         console.groupCollapsed(`ACTION: ${actionKey}`);
 
-        self.status = 'action';
+        this.status = 'action';
 
-        self.actions[actionKey](self, payload);
+        this.actions[actionKey](this, payload);
 
         console.groupEnd();
+
+        console.log('DISPATCH this.events')
+        console.log(this.events);
 
         return true;
     }
 
     commit(mutationKey, payload) {
-        let self = this;
 
-        if(typeof self.mutations[mutationKey] !== 'function') {
+        if(typeof this.mutations[mutationKey] !== 'function') {
             console.log(`Mutation "${mutationKey}" doesn't exist`);
             return false;
         }
 
-        self.status = 'mutation';
+        this.status = 'mutation';
 
-        let newState = self.mutations[mutationKey](self.state, payload);
+        let newState = this.mutations[mutationKey](this.state, payload);
 
-        self.state = Object.assign(self.state, newState);
+        this.state = Object.assign(this.state, newState);
+
+        this.events.publish(mutationKey, this.state);
+
+        console.log('COMMIT this.events')
+        console.log(this.events);
 
         return true;
     }

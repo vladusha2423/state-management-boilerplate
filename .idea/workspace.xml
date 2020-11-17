@@ -1,7 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e6b01f32-9127-4647-b6bc-5adccfb3e10a" name="Default Changelist" comment="" />
+    <list default="true" id="e6b01f32-9127-4647-b6bc-5adccfb3e10a" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/app.component.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/header.component.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/components/list.component.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/modules/component/component.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/modules/component/component.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/modules/pubsub/pubsub.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/modules/pubsub/pubsub.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/modules/router/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/modules/router/route.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/modules/router/route.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/modules/router/router.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/modules/router/router.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/modules/store/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/modules/store/store.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/store/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/views/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/index.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -15,7 +32,11 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1kCjxFNK71Q4B62wp4WQnLcuZQ4" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -24,7 +45,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/client/modules" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/client/components/item" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -32,20 +53,51 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="fileTemplates" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/client" />
+      <recent name="$PROJECT_DIR$/client/components/list" />
+      <recent name="$PROJECT_DIR$/client/components/header" />
+      <recent name="$PROJECT_DIR$/client/components/app" />
       <recent name="$PROJECT_DIR$/client/modules" />
-      <recent name="$PROJECT_DIR$/client/modules/store" />
-      <recent name="$PROJECT_DIR$/client/modules/pubsub" />
-      <recent name="$PROJECT_DIR$/client/modules/component" />
-      <recent name="$PROJECT_DIR$/client/styles" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/client/components/item" />
+      <recent name="$PROJECT_DIR$/client/components/template" />
       <recent name="$PROJECT_DIR$/client/modules" />
       <recent name="$PROJECT_DIR$/client" />
       <recent name="$PROJECT_DIR$/client/components" />
     </key>
+  </component>
+  <component name="RunManager" selected="npm.start">
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="start:dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start:dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.start" />
+        <item itemvalue="npm.start:dev" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -56,7 +108,8 @@
       <option name="presentableId" value="Default" />
       <updated>1605211711909</updated>
       <workItem from="1605211712943" duration="12580000" />
-      <workItem from="1605265174818" duration="15445000" />
+      <workItem from="1605265174818" duration="59020000" />
+      <workItem from="1605601119252" duration="40000" />
     </task>
     <servers />
   </component>
@@ -68,9 +121,33 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="458" y="204" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1440.900@0.0.1440.900" timestamp="1605279431320" />
-    <state x="308" y="192" key="IDE.errors.dialog" timestamp="1605264686208">
+    <state width="1419" height="240" key="GridCell.Tab.0.bottom" timestamp="1605569034179">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="308" y="192" key="IDE.errors.dialog/0.0.1440.900@0.0.1440.900" timestamp="1605264686208" />
+    <state width="1419" height="240" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1605569034179" />
+    <state width="1419" height="240" key="GridCell.Tab.0.center" timestamp="1605569034177">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1419" height="240" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1605569034177" />
+    <state width="1419" height="240" key="GridCell.Tab.0.left" timestamp="1605569034176">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1419" height="240" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1605569034176" />
+    <state width="1419" height="240" key="GridCell.Tab.0.right" timestamp="1605569034178">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1419" height="240" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1605569034178" />
+    <state x="308" y="192" key="IDE.errors.dialog" timestamp="1605445438805">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="308" y="192" key="IDE.errors.dialog/0.0.1440.900@0.0.1440.900" timestamp="1605445438805" />
+    <state x="239" y="156" key="SettingsEditor" timestamp="1605525332981">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="239" y="156" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1605525332981" />
+    <state x="422" y="160" width="596" height="580" key="find.popup" timestamp="1605451522996">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="422" y="160" width="596" height="580" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1605451522996" />
   </component>
 </project>

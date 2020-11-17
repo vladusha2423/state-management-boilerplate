@@ -1,23 +1,18 @@
-import store from './store/index.js';
-import App from './components/app.component.js';
+import Router from './modules/router/router.js';
+import Todo from "./components/todo/todo.component.js";
+import Example from "./components/example/example.component.js";
+import Item from "./components/item/item.component.js";
+import NotFound from "./components/notFound/notFound.component.js";
 
-const app = new App();
+const router = new Router('.app');
 
-const init = function(){
-    document.body.innerHTML = app.render();
-}
-store.events.subscribe('stateChange', init);
-init();
+router
+    .use('/', Todo)
+    .use('/example', Example)
+    .use('/item/:index', Item)
+    .use('/404', NotFound)
+    .start();
 
-document.addEventListener('click', function(event){
-    let input = document.querySelector('.list__input');
-    if(event.target instanceof HTMLButtonElement &&
-        event.target.classList.contains('list__button')){
-        store.dispatch('addItem', input.value);
-    }
-    if(event.target instanceof HTMLButtonElement &&
-        event.target.classList.contains('list__delete-button')){
-        let text = event.target.previousSibling.textContent.trim();
-        store.dispatch('clearItem', { text });
-    }
-});
+window.router = router;
+
+
